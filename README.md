@@ -1,4 +1,4 @@
 # DjangoTemplates
 Use of Django Templates
-In the home page I have made the process of adding themes as dynamic through admin account
-The registration page is also successfuly connected to postgresql database
+-Home page has themes which can be added dynamically through superuser account
+-Registration page successfully connected to postgres database
