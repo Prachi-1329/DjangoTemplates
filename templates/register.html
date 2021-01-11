@@ -1,30 +1,124 @@
-    <Html>  
-    <head>   
-    <title>  
-    Registration Page  
-    </title>  
-    </head>  
-    <body bgcolor="Lightskyblue">  
-    <br>  
-    <br>  
-    <form action="register" method="post"> 
-    {%csrf_token%} 
-      
-    <label> Firstname </label>         
-    <input type="text" name="firstname"/> <br> <br>  
-    <label> Lastname: </label>         
-    <input type="text" name="lastname"/> <br> <br>  
-      
-    <br> <br>  
-    Email:  
-    <input type="email" id="email" name="email"/> <br>    
-    <br> <br>  
-    Password:  
-    <input type="Password" id="passw" name="passw"> <br>   
-    <br> <br>  
-    Re-type password:  
-    <input type="Password" id="repass" name="repass"> <br> <br>  
-    <input type="button" value="Submit"/>  
-    </form>  
-    </body>  
-    </html>  
+<!DOCTYPE html>    
+{% load static %}   
+    
+<html>
+<head>
+<style>
+body
+{
+margin:0px;
+padding:0px;
+background:url("{%static 'img/build.jpg' %}");
+background-size:cover;
+font-family:sans-serif;
+}
+.RegBox
+{
+width:500px;
+height:700px;
+position:absolute;
+top:45%;
+left:50%;
+transform:translate(-50%,-50%);
+box-sizing:border-box;
+background:rgba(0,0,0,0.8);
+padding:80px 40px;
+margin-bottom:10px;
+margin-top:100px;
+}
+#user
+{
+width:100px;
+height:100px;
+border-radius:50px;
+overflow:hidden;
+position:absolute;
+top:calc(-100px/2);
+left:calc(50% - 50px);
+}
+h2
+{
+margin:0px;
+padding:0px;
+color:white;
+text-align:center;
+}
+ p
+{
+color:white;
+
+}
+.loginBox input
+{
+width:100%;
+margin-bottom:20px;
+}
+.loginBox input[type="text"],.loginBox input[type="password"],.loginBox input[type="numbers"],textarea,.loginBox input[type="tel"]
+{
+border:none;
+border-bottom:1px solid white;
+background:transparent;
+outline:none;
+height:25px;
+color:white;
+font-size:15px;
+}
+
+.loginBox input[type="submit"]
+{
+border:none;
+outline:none;
+height:40px;
+color:white;
+font-size:16px;
+background:#ff267e;
+cursor:pointer;
+border-radius:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+<div class="RegBox">
+<img src="{%static 'img/icon1.jpg' %}" id="user">
+<h2>Register</h2></br>
+ <form action="register" method="post"> 
+{% csrf_token %} 
+ 
+<p>First name:</p>
+<input type="text" name="first_name"/> <br>
+<p>Last_name:</p>      
+ <input type="text" name="last_name"/> <br> 
+
+<p>Username:</p>      
+ <input type="text" name="username"/> <br> 
+ 
+<p>Email Id</p>
+<input type="email" id="email" name="email"/> <br>  
+
+<p>Password</p>
+<input type="password" id="passw" name="passw" title="Password must contain atleast 6 characters including uppercase/lowercase letters,numbers " required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" required="" > <br> 
+
+<p>Confirm Password</p>
+<input type="password" name="repass" title="Please enter the same password as above" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"  /><br><br>
+
+<input type="submit" name="signup" value="Sign Up" onclick="confirmPass()"/>
+
+</form>
+</div>
+    <script type="text/javascript">
+        function confirmPass()
+        {
+            var confirm=document.SignupForm.cpassword.value;
+            var password=document.SignupForm.password.value;
+           if(confirm != password)
+            {
+                alert("Password doesn't match");
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

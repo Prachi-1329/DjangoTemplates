@@ -4,12 +4,13 @@ from django.contrib.auth.models import User, auth
 
 def register(request):
 	if request.method=='POST':
-		first_name=request.POST['firstname']
-		last_name=request.POST['lastname']
+		first_name=request.POST['first_name']
+		last_name=request.POST['last_name']
+		username=request.POST['username']
 		email=request.POST['email']
 		password=request.POST['passw']
-		
-		user=User.objects.create_user(first_name=first_name, last_name=last_name, password=password,email=email)
+		repassword=request.POST['repass']
+		user=User.objects.create_user(username=username, first_name=first_name, last_name=last_name, password=password,email=email)
 		user.save();
 		print("user created")
 		return redirect('/')

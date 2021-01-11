@@ -79,7 +79,7 @@ DATABASES = {
         "ENGINE":"django.db.backends.postgresql_psycopg2",
         'NAME': 'parallo',
         'USER':'postgres',
-        'PASSWORD':'prachi1713000',
+        'PASSWORD':'postgres1713000',
         'HOST':'localhost',
         'PORT':'5432',
          }
@@ -127,3 +127,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR,'static')]
 #STATIC_ROOT = ("path/to/static_root")
 STATIC_ROOT=os.path.join(BASE_DIR,'assets')
+
+MEDIA_URL='/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+
